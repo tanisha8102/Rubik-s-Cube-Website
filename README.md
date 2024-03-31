@@ -17,9 +17,22 @@ You can install Vite globally using npm:
 
 ```bash
 npm install -g create-vite
+```
 
-Getting Started
-Clone this repository to your local machine:
+### Getting Started
+
+Once you have installed the necessary dependencies, you can get started with the following steps:
+
+```bash
+git clone https://github.com/your-username/rubiks-cube-website.git
+
+```
+Navigate to the project directory:
+
+```bash
+cd rubiks-cube-website
+
+```
 
 
 
