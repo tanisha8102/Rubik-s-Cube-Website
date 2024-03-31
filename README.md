@@ -15,4 +15,9 @@ You can install Node.js from [here](https://nodejs.org/).
 After installing Node.js, you can install Vite globally using npm:
 
 ```bash
-npm install -g create-vite
+#npm install -g create-vite
+MongoDB
+You can download and install MongoDB from mongodb.com.
+
+Getting Started
+
