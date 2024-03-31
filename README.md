@@ -11,17 +11,20 @@ To run this website locally, you'll need to have the following installed:
 - MongoDB
 
 You can install Node.js from [here](https://nodejs.org/).
+### Vite
 
-After installing Node.js, you can install Vite globally using npm:
+You can install Vite globally using npm:
 
 ```bash
-#npm install -g create-vite
+npm install -g create-vite
+
+Getting Started
+Clone this repository to your local machine:
 
 
-git clone https://github.com/your-username/rubiks-cube-website.git
-cd rubiks-cube-website
-npm install
-mongod
+
+
+
 
 
 
