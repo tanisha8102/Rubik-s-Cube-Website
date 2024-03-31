@@ -35,6 +35,8 @@ cd rubiks-cube-website
 Install the project dependencies:
 ```bash
 npm install
+npm install express
+npm intsall bcyrpt
 ```
 Start the MongoDB server:
 ```bash
