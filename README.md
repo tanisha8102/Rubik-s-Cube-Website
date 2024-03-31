@@ -38,7 +38,7 @@ npm install
 ```
 Start the MongoDB server:
 ```bash
-npm install
+mongo
 
 ```
 
@@ -48,13 +48,21 @@ nodemon src/index.js
 
 ```
 Alternatively, you can start the website without nodemon using:
-```bash
-node src/index.js
 
-```
-```sql
+```less
 
-This structure separates the installation steps (Node.js, Vite, MongoDB) from the "Getting Started" section, making it clear where users should focus depending on whether they are setting up the environment or running the project.
+
+Once you close the code block with the triple backticks without specifying a language (`````), you can continue writing normal text or Markdown content as usual:
+
+```markdown
+Once the website is running, you can open your browser and navigate to http://localhost:3000 to view the Rubik's Cube website.
+
+## Folder Structure
+
+- `assets`: Contains script and CSS files.
+- `public`: Contains images and other public assets.
+- `src`: Contains all essential files for the website.
+
 
 ```
 
