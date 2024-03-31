@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="lo_styles.css">
+    <style>
+        /* Additional CSS to ensure the cube image is initially visible */
+        
+        .cube-image {
+            display: block;
+            /* Set the initial display property to block */
+            margin: 0 auto;
+            /* Center the image horizontally */
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="/login" method="post">
+
+        <!-- Updated action to /login -->
+        <div class="form-container" onclick="onclick">
+            <div class="top"></div>
+            <h1 class="cube">3D RUBIK'S CUBE</h1>
+
+            <img src="images/cubei.png" alt="Cube Image" class="cube-image" id="cubeImage">
+
+            <div class="bottom"></div>
+
+            <div class="center" id="loginDetails">
+
+                <!-- Added cube image -->
+                <h2>Please Log In</h2>
+                <input type="name" id="name" name="username" placeholder="Enter your name" required autocomplete="off">
+                <input type="password" id="password" name="password" placeholder="password" required>
+                <button type="submit" class="submit-btn">Login</button>
+                <p>Don't have an account? <a class="link" href="/signup">SignUp</a></p>
+
+            </div>
+        </div>
+    </form>
+
+
+
+</body>
+
+</html>

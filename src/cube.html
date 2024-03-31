@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="/assets/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cube</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            color: #0bb08c;
+            ;
+            font-size: 28px;
+            min-height: calc(3000px + 100vh);
+            min-height: 3000px;
+            scroll-behavior: smooth;
+            /* Add smooth scrolling behavior */
+        }
+        
+        h1 {
+            text-align: center;
+            margin-left: 350px;
+        }
+        
+        section.cube {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        section.content {
+            padding: 32px;
+            position: fixed;
+            z-index: 1;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #185e39;
+            color: rgb(232, 222, 222);
+            padding: 10px;
+            text-align: center;
+        }
+        
+        button {
+            list-style-type: none;
+            margin: 0;
+            padding: 10;
+            font-size: 25px;
+            background-color: #0bb08c;
+            color: rgb(76, 75, 75);
+        }
+        
+        button:hover {
+            size: 30px;
+            font-size: 27px;
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="cube"></section>
+
+    <section class="content">
+        <!-- <form action="end.html" ,method="get"> -->
+        <nav class="navbar">
+            <ul>
+                <button type="submit" id="logoutButton" style="font-size:24px">Logout <i class="fa fa-sign-out"></i></button>
+            </ul>
+        </nav>
+        <!-- </form> -->
+        <h1>Scroll the page to rotate the cube !!!</h1>
+    </section>
+    <footer>Thankyou for Visiting ❤️ </footer>
+    <script>
+        const section = document.querySelector("section.cube");
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        section.appendChild(renderer.domElement);
+
+        const loader = new THREE.TextureLoader();
+
+        const textures = [
+            'images/rule 1.png', 'images/rule 2.png',
+            'images/top1.png', 'images/bottom 1.png',
+            'images/front 1.png', 'images/back 1.png'
+        ];
+
+        const frontTexture = loader.load('images/front.png'); // Load the front texture separately
+
+        const materials = textures.map(url => {
+            return new THREE.MeshBasicMaterial({
+                map: loader.load(url)
+            });
+        });
+
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const cube = new THREE.Mesh(geometry, materials);
+        scene.add(cube);
+
+        let rotating = false;
+        let reverseRotation = false;
+        let rotationAngle = -Math.PI / 2; // Initial rotation angle
+        let completedRotation = false; // Flag to track completed rotation
+        let reachedBottom = false; // Flag to track reaching the bottom of the page
+
+        function rotateCubeTo(imageUrl) {
+            const index = textures.findIndex(url => url === imageUrl);
+            if (index !== -1) {
+                const targetRotation = rotationAngle * index;
+                cube.rotation.y = targetRotation;
+            }
+        }
+
+        function handleScroll() {
+            if (!rotating) {
+                rotateCubeTo('images/rule 1.png'); // Rotate left first (rule 1.png in front)
+                rotating = true;
+                animate();
+            } else if (!reverseRotation) {
+                // After one complete scroll cycle, reverse the rotation direction
+                reverseRotation = true;
+                rotationAngle *= -1; // Reverse the rotation angle
+                completedRotation = true; // Set completed rotation flag
+            } else {
+                rotateCubeTo('images/rule 2.png'); // Rotate right after left rotation (rule 2.png in front)
+                animate();
+            }
+
+            // Check if the user has scrolled to the bottom of the page
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                reachedBottom = true;
+            } else {
+                reachedBottom = false;
+            }
+
+
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const currentTimeline = window.pageYOffset / 3000;
+            const rx = currentTimeline * Math.PI * 2; // Convert to radians for rotation
+            cube.rotation.y = rx;
+
+            if (reachedBottom && (completedRotation || reverseRotation)) {
+                // Update cube materials to use the front texture for all faces only at the bottom
+                cube.material = materials.map(() => new THREE.MeshBasicMaterial({
+                    map: frontTexture
+                }));
+            } else {
+                // Revert to previous images for all faces
+                cube.material = materials;
+            }
+
+            renderer.render(scene, camera);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select the logout button by its ID
+            const logoutButton = document.getElementById('logoutButton');
+
+            // Add a click event listener to the logout button
+            logoutButton.addEventListener('click', function() {
+                // Redirect to the end.html page
+                window.location.href = '/login'; // Adjust the URL as needed
+            });
+        });
+    </script>
+</body>
+
+
+
+</html>
