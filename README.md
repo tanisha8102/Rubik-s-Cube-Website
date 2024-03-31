@@ -31,8 +31,34 @@ Navigate to the project directory:
 
 ```bash
 cd rubiks-cube-website
+```
+Install the project dependencies:
+```bash
+npm install
+```
+Start the MongoDB server:
+```bash
+npm install
 
 ```
+
+Start the website using nodemon (requires nodemon to be installed globally):
+```bash
+nodemon src/index.js
+
+```
+Alternatively, you can start the website without nodemon using:
+```bash
+node src/index.js
+
+```
+```sql
+
+This structure separates the installation steps (Node.js, Vite, MongoDB) from the "Getting Started" section, making it clear where users should focus depending on whether they are setting up the environment or running the project.
+
+```
+
+
 
 
 
