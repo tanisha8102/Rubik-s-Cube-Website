@@ -16,8 +16,12 @@ After installing Node.js, you can install Vite globally using npm:
 
 ```bash
 #npm install -g create-vite
-MongoDB
-You can download and install MongoDB from mongodb.com.
 
-Getting Started
+
+git clone https://github.com/your-username/rubiks-cube-website.git
+cd rubiks-cube-website
+npm install
+mongod
+
+
 
