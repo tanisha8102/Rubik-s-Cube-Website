@@ -65,6 +65,8 @@ Once the website is running, you can open your browser and navigate to http://lo
 
 
 ```
+## Demo Video
+A demo video showcasing the features of the Rubik's Cube website is included in the repository. 
 
 
 
