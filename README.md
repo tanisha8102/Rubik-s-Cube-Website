@@ -58,8 +58,6 @@ Once the website is running, you can open your browser and navigate to http://lo
 - `public`: Contains images and other public assets.
 - `src`: Contains all essential files for the website.
 
-
-```
 ## Demo Video
 A demo video showcasing the features of the Rubik's Cube website is included in the repository. 
 
