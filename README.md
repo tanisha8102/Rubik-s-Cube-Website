@@ -48,13 +48,6 @@ Start the website using nodemon (requires nodemon to be installed globally):
 ```bash
 nodemon src/index.js
 
-```
-Alternatively, you can start the website without nodemon using:
-
-```less
-
-
-Once you close the code block with the triple backticks without specifying a language (`````), you can continue writing normal text or Markdown content as usual:
 
 ```markdown
 Once the website is running, you can open your browser and navigate to http://localhost:5000 to view the Rubik's Cube website.
