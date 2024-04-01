@@ -47,7 +47,7 @@ mongo
 Start the website using nodemon (requires nodemon to be installed globally):
 ```bash
 nodemon src/index.js
-
+```
 
 ```markdown
 Once the website is running, you can open your browser and navigate to http://localhost:5000 to view the Rubik's Cube website.
