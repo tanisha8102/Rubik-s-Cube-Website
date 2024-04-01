@@ -58,7 +58,7 @@ Once you close the code block with the triple backticks without specifying a lan
 
 ```markdown
 Once the website is running, you can open your browser and navigate to http://localhost:5000 to view the Rubik's Cube website.
-
+```
 ## Folder Structure
 
 - `assets`: Contains script and CSS files.
